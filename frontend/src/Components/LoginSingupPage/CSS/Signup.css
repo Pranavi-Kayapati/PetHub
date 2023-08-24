@@ -18,13 +18,11 @@
   margin: auto;
   padding: 0 40px 20px 40px;
   border-radius: 10px;
-  /* background-color: #f8f8f8; */
 }
 
 .signup-header {
   display: flex;
   flex-direction: row;
-  /* text-align: center; */
   justify-content: space-around;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -35,7 +33,6 @@
 .signup-header h2 {
   font-size: 40px;
   text-align: center;
-  /* padding-left: 40px; */
 }
 .signup-social {
   margin-top: 30px;
@@ -62,15 +59,7 @@
 .signup-social .facebook svg {
   color: white;
 }
-
-/* .signp-image {
-  width: 600px;
-  height: 600px;
-  overflow: hidden;
-  margin-top: 50px;
-} */
 .signp-image img {
-  /* width: 100%; */
   background: transparent;
 }
 
@@ -101,7 +90,7 @@
 }
 
 .signup-button:hover {
-  background: #3232af; /* Fallback color */
+  background: #3232af;
 }
 
 .user-input-wrp {
@@ -171,7 +160,6 @@
     margin: auto;
     padding: 0 40px 20px 40px;
     border-radius: 10px;
-    /* background-color: #f8f8f8; */
   }
 }
 
