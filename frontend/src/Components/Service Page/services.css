@@ -21,6 +21,7 @@
 }
 
 .services-main-container {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -156,7 +157,7 @@ header {
 .img1,
 .img2,
 .img3 {
-  width: 30%;
+  width: 40%;
   height: 450px;
   background-repeat: no-repeat;
   background-position: center;
@@ -165,18 +166,15 @@ header {
 }
 
 .img1 {
-  /* background-image: url(https://drive.google.com/uc?export=view&id=1AqXPS7OK62CSj5ypYMdeqIKwzHeGm4IH); */
   background-image: url("./images/petboarding.png");
 }
 
 .img2 {
-  /* background-image: url(https://drive.google.com/uc?export=view&id=1ZxQCFeL4moh04NIV2YEHzX1qTatrcRN_); */
   background-image: url("./images/petAdopt3.png");
 }
 
 .img3 {
   margin: 3% 5% 2%;
-  /* background-image: url(https://drive.google.com/uc?export=view&id=1eUfhp8t8goHdHkQrAlX02nafUbfv6W0R); */
   background-image: url("./images/training3.png");
 }
 
@@ -216,6 +214,7 @@ footer {
 }
 .banner {
   position: relative;
+  width: 100vw;
   height: 520px;
   background-color: rgb(212, 229, 236);
   background-image: url("./images/pets.png");
@@ -266,4 +265,47 @@ footer {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+@media screen and (max-width: 1250px) {
+  .section {
+    width: 100%;
+    margin: auto;
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .img1,
+  .img2,
+  .img3 {
+    width: 50%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .section {
+    width: 100%;
+    margin: auto;
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .img1,
+  .img2,
+  .img3 {
+    width: 50%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    border-radius: 20px;
+  }
 }
