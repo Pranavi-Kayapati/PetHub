@@ -7,9 +7,11 @@ breed:String,
 image:String,
 gender:String,
 size:String
+},{
+versionKey:false
 })
 
-const petModel=mongoose.model("pet",petSchema);
+const petModel=mongoose.model("pets",petSchema);
 
 module.exports={
     petModel

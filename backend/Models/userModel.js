@@ -7,7 +7,7 @@ email:String,
 password:String
 })
 
-const userModel=mongoose.model("users",petSchema);
+const userModel=mongoose.model("users",userSchema);
 
 module.exports={
     userModel

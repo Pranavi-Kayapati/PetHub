@@ -9,8 +9,18 @@ const userRouter=express.Router();
 
 userRouter.post("/register",async(req,res)=>{
 const {FirstName,LastName,email,password}=req.body
-
+const uppercaseRegex = /[A-Z]/;
+    const numberRegex = /[0-9]/;
+    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    
+    if (!uppercaseRegex.test(password) || !numberRegex.test(password) || !specialCharRegex.test(password) || password.length >= 6) {
+        return res.status(400).send({ error: 'password is invalid' });
+    }
 try {
+    const emailExist=await userModel.findOne({email})
+    if(emailExist){
+        res.send({"msg":"email already exist"})
+    }
     bcrypt.hash(password,5,async(err,hash)=>{
         if(err){
             res.send("err")
@@ -32,6 +42,8 @@ try {
 
 userRouter.post("/login",async(req,res)=>{
     const {email,password}=req.body
+
+
     try {
         const user=await userModel.findOne({email})
         if(user){

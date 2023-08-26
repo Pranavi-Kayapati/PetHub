@@ -4,7 +4,8 @@ const { auth } = require("../Middleware/auth");
 const petRouter=express.Router();
 
 
-petRouter.get("/",async(req,res)=>{
+petRouter.get("/",auth,async(req,res)=>{
+
 try {
     const data=await petModel.find({userId:req.body.userId});
     res.send(data)
@@ -61,3 +62,5 @@ try {
 module.exports={
     petRouter
 }
+
+
