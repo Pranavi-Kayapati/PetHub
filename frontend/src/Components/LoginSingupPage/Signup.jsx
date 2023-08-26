@@ -20,8 +20,18 @@ function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    const user = { firstname, lastname, email, password, confirmPassword };
-    console.log(user);
+    const user = { firstname, lastname, email, password };
+    fetch("https://worried-fatigues-crab.cyclic.cloud/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // console.log(user);
   };
 
   return (
@@ -111,7 +121,7 @@ function Signup() {
               </div>
               <br />
             </div>
-            <div className="input-group user-input-wrp">
+            {/* <div className="input-group user-input-wrp">
               <br />
               <input
                 className="inputText"
@@ -123,7 +133,7 @@ function Signup() {
                 required
               />
               <span className="floating-label">Confirm Password</span>
-            </div>
+            </div> */}
             <br />
             <button type="submit" className="signup-button">
               Sign Up

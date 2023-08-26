@@ -47,7 +47,7 @@ function Services() {
     });
 
     sr.reveal("#s2", {
-      delay: 125,
+      delay: 100,
       duration: 1500,
       opacity: 0,
       distance: "50%",
@@ -56,7 +56,7 @@ function Services() {
     });
 
     sr.reveal("#s3", {
-      delay: 175,
+      delay: 100,
       duration: 1500,
       opacity: 0,
       distance: "50%",
@@ -65,7 +65,7 @@ function Services() {
     });
 
     sr.reveal("#s4", {
-      delay: 175,
+      delay: 75,
       duration: 1500,
       opacity: 0,
       distance: "50%",
