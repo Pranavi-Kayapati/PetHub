@@ -60,6 +60,11 @@ const Navbar = () => {
         <Link to="/">
           <img width="180px" src={logo} alt="" />
         </Link>
+        <h3 style={{ margin: '0 10px' }}>ALL ABOUT PETS</h3>
+        <h3 onClick={toggleNav} style={{ cursor: 'pointer', fontSize: '20px', fontWeight: 'bolder' }}>
+          {isNavOpen ? <CgChevronUp /> : <CgChevronDown />}
+        </h3>
+        <h3 style={{ margin: '0 10px' }}><Link to="/">OUR SERVICES</Link></h3>
         <div
           style={{
             display: "flex",
@@ -179,14 +184,13 @@ const Navbar = () => {
                   {/* Add more dog-related menu items */}
                 </MenuList>
               </Menu>
-              <Menu>
-                <MenuButton as={Text} isLazy={true} color="#fff">
-                  Our Services
-                  <Link to=""></Link>
-                </MenuButton>
-              </Menu>
+//               <Menu>
+//                 <MenuButton as={Text} isLazy={true} color="#fff">
+//                   Our Services
+//                   <Link to=""></Link>
+//                 </MenuButton>
+//               </Menu>
             </li>
-            {/* Add more categories here */}
           </ul>
         </div>
       )}
