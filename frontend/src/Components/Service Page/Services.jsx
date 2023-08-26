@@ -1,9 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./services.css"; // Import the CSS file
 import ScrollReveal from "scrollreveal"; // Import ScrollReveal library
 import { Link } from "react-router-dom";
 import petsImage from "./images/pets.png";
+import { TiTick } from "react-icons/ti";
+
+import {
+  Modal,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+  Select,
+  DatePicker,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  ButtonGroup,
+} from "@chakra-ui/react";
+
 function Services() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const initialRef = useRef(null);
+  const finalRef = useRef(null);
+
   useEffect(() => {
     const sr = ScrollReveal();
 
@@ -31,6 +61,15 @@ function Services() {
       opacity: 0,
       distance: "50%",
       origin: "left",
+      reset: true,
+    });
+
+    sr.reveal("#s4", {
+      delay: 175,
+      duration: 1500,
+      opacity: 0,
+      distance: "50%",
+      origin: "bottom",
       reset: true,
     });
   }, []);
@@ -64,7 +103,84 @@ function Services() {
                 cleanliness and engages pets with activities. Your furry friends
                 will receive the care they deserve in our home away from home.
               </p>
-              <button className="boarding">Book Pets Boarding</button>
+              <button onClick={onOpen} className="boarding">
+                Book Pets Boarding
+              </button>
+              <Modal
+                initialFocusRef={initialRef}
+                finalFocusRef={finalRef}
+                isOpen={isOpen}
+                onClose={onClose}
+              >
+                <ModalOverlay />
+                <ModalContent>
+                  <h2 style={{ textAlign: "center", padding: "20px" }}>
+                    Book Your Slot
+                  </h2>
+                  <ModalCloseButton onClick={onClose} />
+                  <ModalBody pb={6}>
+                    <FormControl style={{ marginTop: "20px" }}>
+                      <FormLabel>Pet</FormLabel>
+                      <Select placeholder="Select Pet">
+                        <option>Dog</option>
+                        <option>Cat</option>
+                        <option>Rabbit</option>
+                        <option>Birds</option>
+                      </Select>
+                    </FormControl>
+
+                    <FormControl style={{ marginTop: "20px" }}>
+                      <FormLabel>Service</FormLabel>
+                      <Select placeholder="Select Service">
+                        <option>Boarding and Lodging</option>
+                        <option>Pet Training</option>
+                      </Select>
+                    </FormControl>
+                    <FormControl style={{ marginTop: "20px" }}>
+                      <FormLabel>Start Date</FormLabel>
+                      <Input type="date" placeholder="Drop off" />
+                    </FormControl>
+                    <FormControl style={{ marginTop: "20px" }}>
+                      <FormLabel>End Date</FormLabel>
+                      <Input type="date" placeholder="Pick up" />
+                    </FormControl>
+                  </ModalBody>
+
+                  <FormControl>
+                    <FormLabel style={{ paddingLeft: "26px" }}>
+                      Duration hours/day
+                    </FormLabel>
+                    <NumberInput
+                      max={24}
+                      min={1}
+                      style={{ width: "90%", margin: "auto" }}
+                    >
+                      <NumberInputField />
+                      <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                      </NumberInputStepper>
+                    </NumberInput>
+                  </FormControl>
+
+                  {/* <ModalFooter> */}
+                  <ButtonGroup
+                    gap="2"
+                    style={{
+                      padding: "20px 15px",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Button colorScheme="blue" mr={3}>
+                      Submit
+                    </Button>
+                    <Button onClick={onClose}>Cancel</Button>
+                  </ButtonGroup>
+                  {/* </ModalFooter> */}
+                </ModalContent>
+              </Modal>
             </article>
           </section>
 
@@ -100,12 +216,80 @@ function Services() {
                 embark on a transformative journey of mutual understanding and
                 lifelong companionship.
               </p>
-              <button className="training">Book Slot</button>
+              <button className="training" onClick={onOpen}>
+                Book Slot
+              </button>
             </article>
           </section>
           {/* End Section 3 */}
           {/* Footer */}
-          <footer></footer>
+          <div className="knowmore" id="s4">
+            <h2>No more loud kennels or cages</h2>
+            <div className="knowmore-container">
+              <div className="knowmore-item">
+                <div>
+                  <TiTick />
+                </div>
+                <div className="item-desc">
+                  <h3>Loving care in your sitter's home</h3>
+                  <p>
+                    It's easy to find dog boarding in your city—just search your
+                    zip code to see trusted sitters near you.
+                  </p>
+                </div>
+              </div>
+              <div className="knowmore-item">
+                <div>
+                  <TiTick />
+                </div>
+                <div className="item-desc">
+                  <h3>Dog sitters you can trust</h3>
+                  <p>
+                    Every sitter profile has been individually reviewed and
+                    approved by Rover and sitters on Rover have received
+                    millions of 5-star reviews.
+                  </p>
+                </div>
+              </div>
+              <div className="knowmore-item">
+                <div>
+                  <TiTick />
+                </div>
+                <div className="item-desc">
+                  <h3>Affordable, personalized pet care</h3>
+                  <p>
+                    Worried that dog boarding in a sitter’s home will be more
+                    expensive than kennels? Find out how much dog sitters near
+                    you typically cost.
+                  </p>
+                </div>
+              </div>
+              <div className="knowmore-item">
+                <div>
+                  <TiTick />
+                </div>
+                <div className="item-desc">
+                  <h3>Easy Meet & Greets</h3>
+                  <p>
+                    Meet your dog's perfect match before you book. Request a
+                    free in-person Meet & Greet, right from your Rover inbox.
+                  </p>
+                </div>
+              </div>
+              <div className="knowmore-item">
+                <div>
+                  <TiTick />
+                </div>
+                <div className="item-desc">
+                  <h3>Cute photo updates</h3>
+                  <p>
+                    Millions of adorable photos have been sent through Rover!
+                    Receive a pic of your dog enjoying a round of fetch.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
