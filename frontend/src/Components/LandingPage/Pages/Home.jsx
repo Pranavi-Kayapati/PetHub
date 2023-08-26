@@ -6,6 +6,7 @@ import three from "../Images/3.png";
 import four from "../Images/4.png";
 import { Link } from "react-router-dom";
 const Home = () => {
+
    return (
       <Box width="100%">
       <Box border="3px solid #3232af" >
@@ -84,88 +85,109 @@ const Home = () => {
                bg={"#EDE7F6"}
                padding={30}
             >
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                        /* Optional: Position the image within the container */
-                        //   position: "absolute",
-                        //   top: 0;
-                        //   left: 0;
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/63291329/1/?bust=1683800934&width=316"
-                     alt=""
-                  />
-                  {/* <Text fontWeight={600}>Boo</Text> */}
-                  <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
+              Boo
             </Heading>
-                  {/* <h2>Boo</h2> */}
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64094873/1/?bust=1683454882&width=316"
-                     alt=""
-                  />
-               <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Rallo
-            </Heading>
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59534213/1/?bust=1683800901&width=316"
-                     alt=""
-                  />
-                <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-           Bravo
-            </Heading>
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064029/1/?bust=1683800944&width=316"
-                     alt=""
-                  />
-               <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Tullo
-            </Heading>
-               </Box>
-            </Stack>
-         </Box>
-
-         <Box margin={"150px 100px"}>
+            {/* <h2>Boo</h2> */}
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64094873/1/?bust=1683454882&width=316"
+              alt=""
+            />
             <Heading
-               textAlign="center"
-               fontFamily="arial helvetica "
-               //  line-height: 1.2;
-               //  font-size: 30px;
-               //  font-weight: 400;
-               color="#4d4751"
-               //  margin-bottom: 40px;
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
             >
-               Planning to Adopt a Pet?
+              Rallo
             </Heading>
-            <Stack
-               direction={{ base: "column", md: "row" }}
-               gap={"80px"}
-               justifyContent={"center"}
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59534213/1/?bust=1683800901&width=316"
+              alt=""
+            />
+            <Heading
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
             >
+              Bravo
+            </Heading>
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064029/1/?bust=1683800944&width=316"
+              alt=""
+            />
+            <Heading
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
+            >
+              Tullo
+            </Heading>
+          </Box>
+        </Stack>
+      </Box>
+
+      <Box margin={"150px 100px"}>
+        <Heading
+          textAlign="center"
+          fontFamily="arial helvetica "
+          //  line-height: 1.2;
+          //  font-size: 30px;
+          //  font-weight: 400;
+          color="#4d4751"
+          //  margin-bottom: 40px;
+        >
+          Planning to Adopt a Pet?
+        </Heading>
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          gap={"80px"}
+          justifyContent={"center"}
+        >
+          <Box w={400}>
+            <Heading
+              color={"#004c81"}
+              fontSize={"20px"}
+              pt={10}
+              fontFamily={"Nexa-Bold"}
+              fontWeight={400}
+            >
+              Checklist for New Adopters
+            </Heading>
+            <Text>Help make the transition, as smooth as possible.</Text>
+            <Button
+              m={10}
+              bg={"white"}
+              border={"2px solid #20ccf8"}
+              color="#004c81"
+              borderRadius={"12rem"}
+            >
+
                <Box w={400}>
                   <Heading
                      color={"#004c81"}
@@ -240,72 +262,122 @@ const Home = () => {
       <Box margin={["50px 20px", "150px 100px"]}>
          <Heading color={"#6504b5"} mb="30px">
                Pets Available for Adoption Nearby
+
             </Heading>
-            <Stack
-               direction={{ base: "column", md: "row" }}
-               gap={20}
-               bg={"#EDE7F6"}
-               padding={30}
+            <Text>
+              Get the latest on adoption processes, learn how local shelters and
+              rescue groups are adapting and find out what you can do to help
+              dogs and cats in need right now.
+            </Text>
+            <Button
+              m={10}
+              bg={"white"}
+              border={"2px solid #20ccf8"}
+              color="#004c81"
+              borderRadius={"12rem"}
             >
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                        /* Optional: Position the image within the container */
-                        //   position: "absolute",
-                        //   top: 0;
-                        //   left: 0;
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64228600/1/?bust=1683713812&width=450"
-                     alt=""
-                  />
-                 <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Rambo
+              Learn More
+            </Button>
+            {/* <Button m={10} >Learn More</Button> */}
+          </Box>
+          <Box w={300}>
+            <Heading
+              color={"#004c81"}
+              fontSize={"20px"}
+              pt={10}
+              fontFamily={"Nexa-Bold"}
+              fontWeight={400}
+            >
+              Pet Adoption FAQs
             </Heading>
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064016/1/?bust=1683800914&width=316"
-                     alt=""
-                  />
-                <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
+            <Text>Get answers to questions you haven't thought of.</Text>
+            <Button
+              m={10}
+              bg={"white"}
+              border={"2px solid #20ccf8"}
+              color="#004c81"
+              borderRadius={"12rem"}
+            >
+              Learn More
+            </Button>
+            {/* <Button m={10}>Learn More</Button> */}
+          </Box>
+        </Stack>
+      </Box>
+      <Box>
+        <Heading color={"#3232af"} mb="30px">
+          Pets Available for Adoption Nearby
+        </Heading>
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          gap={20}
+          bg={"#EDE7F6"}
+          padding={30}
+        >
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+                /* Optional: Position the image within the container */
+                //   position: "absolute",
+                //   top: 0;
+                //   left: 0;
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64228600/1/?bust=1683713812&width=450"
+              alt=""
+            />
+            <Heading
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
+            >
+              Rambo
             </Heading>
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48017216/1/?bust=1591006865&width=316"
-                     alt=""
-                  />
-                  <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064016/1/?bust=1683800914&width=316"
+              alt=""
+            />
+            <Heading
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
+            >
+              Boo
             </Heading>
-               </Box>
-               <Box>
-                  <img
-                     style={{
-                        width: "100%",
-                        height: "70%",
-                        objectFit: "cover",
-                     }}
-                     src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064029/1/?bust=1683800944&width=316"
-                     alt=""
-                  />
-                 <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "100%",
+                height: "70%",
+                objectFit: "cover",
+              }}
+              src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48017216/1/?bust=1591006865&width=316"
+              alt=""
+            />
+            <Heading
+              p={"20px 0px"}
+              fontSize={"50px"}
+              fontFamily={"body"}
+              fontWeight={500}
+              color={"purple"}
+            >
+              Boo
             </Heading>
+
                </Box>
             </Stack>
       </Box>
@@ -361,6 +433,7 @@ const Home = () => {
       </Box>
    </Box>
    );
+
 };
 
 export default Home;
