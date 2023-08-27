@@ -8,8 +8,26 @@ import { Link } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = { email, password };
+    fetch("https://tiny-red-armadillo-cape.cyclic.cloud/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // console.log(user);
   };
 
   return (
@@ -35,7 +53,7 @@ function Login() {
               <span>Facebook</span>
             </span>
           </div>
-          <form id="login-form">
+          <form id="login-form" onSubmit={handleLogin}>
             <br />
             <div className="input-group user-input-wrp">
               <br />
@@ -44,6 +62,8 @@ function Login() {
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <span className="floating-label">Email</span>
@@ -57,6 +77,8 @@ function Login() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <span className="floating-label">Password</span>

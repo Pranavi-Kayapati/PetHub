@@ -8,11 +8,10 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [Firstname, setFirstname] = useState("");
+  const [Lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -20,8 +19,8 @@ function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    const user = { firstname, lastname, email, password };
-    fetch("https://worried-fatigues-crab.cyclic.cloud/users/register", {
+    const user = { Firstname, Lastname, email, password };
+    fetch("https://tiny-red-armadillo-cape.cyclic.cloud/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +66,7 @@ function Signup() {
                 type="text"
                 id="firstname"
                 name="firstname"
-                value={firstname}
+                value={Firstname}
                 onChange={(e) => setFirstname(e.target.value)}
                 required
               />
@@ -81,7 +80,7 @@ function Signup() {
                 type="text"
                 id="lastname"
                 name="lastname"
-                value={lastname}
+                value={Lastname}
                 onChange={(e) => setLastname(e.target.value)}
                 required
               />

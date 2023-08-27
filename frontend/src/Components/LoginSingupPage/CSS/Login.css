@@ -152,6 +152,9 @@
   .login-image {
     display: none;
   }
+  .login-main {
+    margin-top: 100px;
+  }
 
   .login-image img {
     display: none;
@@ -193,5 +196,14 @@
   }
   .login-social > span {
     width: 50%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .login-main {
+    width: 100%;
+  }
+  .login-container {
+    width: 100%;
   }
 }

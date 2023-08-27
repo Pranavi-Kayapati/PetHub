@@ -111,6 +111,7 @@ function Services() {
                 finalFocusRef={finalRef}
                 isOpen={isOpen}
                 onClose={onClose}
+                size="xl"
               >
                 <ModalOverlay />
                 <ModalContent>
