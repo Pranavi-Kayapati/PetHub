@@ -64,8 +64,8 @@ const Navbar = () => {
         <h3 onClick={toggleNav} style={{ cursor: 'pointer', fontSize: '20px', fontWeight: 'bolder' }}>
           {isNavOpen ? <CgChevronUp /> : <CgChevronDown />}
         </h3>
-        <h3 style={{ margin: '0 10px' }}><Link to="/">OUR SERVICES</Link></h3>
-        <div
+        <h3 style={{ margin: '0 10px' }}><Link to="/services">OUR SERVICES</Link></h3>
+        {/* <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -83,7 +83,7 @@ const Navbar = () => {
           >
             {isNavOpen ? <CgChevronUp /> : <CgChevronDown />}
           </h3>
-        </div>
+        </div> */}
       </div>
 
       <div style={{ display: "flex", alignItems: "center", width: "25%" }}>
@@ -184,12 +184,6 @@ const Navbar = () => {
                   {/* Add more dog-related menu items */}
                 </MenuList>
               </Menu>
-//               <Menu>
-//                 <MenuButton as={Text} isLazy={true} color="#fff">
-//                   Our Services
-//                   <Link to=""></Link>
-//                 </MenuButton>
-//               </Menu>
             </li>
           </ul>
         </div>
