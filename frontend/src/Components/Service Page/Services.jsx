@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import "./services.css"; // Import the CSS file
-import ScrollReveal from "scrollreveal"; // Import ScrollReveal library
-import { Link } from "react-router-dom";
-import petsImage from "./images/pets.png";
+import React, { useEffect, useRef, useState } from "react";
+import "./services.css";
+import ScrollReveal from "scrollreveal";
+import { Link, useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 
 import {
@@ -14,12 +13,9 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
   useDisclosure,
   Select,
-  DatePicker,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -30,9 +26,20 @@ import {
 
 function Services() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const navigate = useNavigate();
   const initialRef = useRef(null);
   const finalRef = useRef(null);
+  const [pet, setPet] = useState("");
+  const [service, setService] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [duration, setHours] = useState("");
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    let localToken = localStorage.getItem("token");
+    setToken(localToken);
+  }, []);
 
   useEffect(() => {
     const sr = ScrollReveal();
@@ -73,6 +80,33 @@ function Services() {
       reset: true,
     });
   }, []);
+
+  const handleSubmit = () => {
+    const details = {
+      pet,
+      type_of_service: service,
+      startDate,
+      endTime: endDate,
+      duration,
+    };
+    if (token) {
+      console.log(details);
+      fetch("https://tiny-red-armadillo-cape.cyclic.cloud/service/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(details),
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+      //onClose();
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="services-main-container">
@@ -122,7 +156,11 @@ function Services() {
                   <ModalBody pb={6}>
                     <FormControl style={{ marginTop: "20px" }}>
                       <FormLabel>Pet</FormLabel>
-                      <Select placeholder="Select Pet">
+                      <Select
+                        placeholder="Select Pet"
+                        value={pet}
+                        onChange={(e) => setPet(e.target.value)}
+                      >
                         <option>Dog</option>
                         <option>Cat</option>
                         <option>Rabbit</option>
@@ -132,18 +170,32 @@ function Services() {
 
                     <FormControl style={{ marginTop: "20px" }}>
                       <FormLabel>Service</FormLabel>
-                      <Select placeholder="Select Service">
+                      <Select
+                        placeholder="Select Service"
+                        value={service}
+                        onChange={(e) => setService(e.target.value)}
+                      >
                         <option>Boarding and Lodging</option>
                         <option>Pet Training</option>
                       </Select>
                     </FormControl>
                     <FormControl style={{ marginTop: "20px" }}>
                       <FormLabel>Start Date</FormLabel>
-                      <Input type="date" placeholder="Drop off" />
+                      <Input
+                        type="date"
+                        placeholder="Start Date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                      />
                     </FormControl>
                     <FormControl style={{ marginTop: "20px" }}>
                       <FormLabel>End Date</FormLabel>
-                      <Input type="date" placeholder="Pick up" />
+                      <Input
+                        type="date"
+                        placeholder="Pick up"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                      />
                     </FormControl>
                   </ModalBody>
 
@@ -156,7 +208,10 @@ function Services() {
                       min={1}
                       style={{ width: "90%", margin: "auto" }}
                     >
-                      <NumberInputField />
+                      <NumberInputField
+                        value={duration}
+                        onChange={(e) => setHours(e.target.value)}
+                      />
                       <NumberInputStepper>
                         <NumberIncrementStepper />
                         <NumberDecrementStepper />
@@ -174,7 +229,7 @@ function Services() {
                       alignItems: "center",
                     }}
                   >
-                    <Button colorScheme="blue" mr={3}>
+                    <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
                       Submit
                     </Button>
                     <Button onClick={onClose}>Cancel</Button>

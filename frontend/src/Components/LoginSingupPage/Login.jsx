@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./CSS/Login.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -25,7 +25,10 @@ function Login() {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        localStorage.setItem("token", JSON.stringify(res.token));
+        console.log(res);
+      })
       .catch((err) => console.log(err));
     // console.log(user);
   };

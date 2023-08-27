@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
 // import { GiHamburgerMenu } from 'react-icons/gi';
@@ -17,11 +17,17 @@ import logo from "../image/logo.png";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [token, setToken] = useState("");
   // const toast = useToast();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    setToken(localToken);
+  }, []);
 
   // Handle logout function
   // let handleLogout = () => {
@@ -60,11 +66,16 @@ const Navbar = () => {
         <Link to="/">
           <img width="180px" src={logo} alt="" />
         </Link>
-        <h3 style={{ margin: '0 10px' }}>ALL ABOUT PETS</h3>
-        <h3 onClick={toggleNav} style={{ cursor: 'pointer', fontSize: '20px', fontWeight: 'bolder' }}>
+        <h3 style={{ margin: "0 10px" }}>ALL ABOUT PETS</h3>
+        <h3
+          onClick={toggleNav}
+          style={{ cursor: "pointer", fontSize: "20px", fontWeight: "bolder" }}
+        >
           {isNavOpen ? <CgChevronUp /> : <CgChevronDown />}
         </h3>
-        <h3 style={{ margin: '0 10px' }}><Link to="/services">OUR SERVICES</Link></h3>
+        <h3 style={{ margin: "0 10px" }}>
+          <Link to="/services">OUR SERVICES</Link>
+        </h3>
         {/* <div
           style={{
             display: "flex",
