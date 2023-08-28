@@ -252,7 +252,7 @@ function Services() {
                 today..
               </p>
               <button className="adopt">
-                <Link to="/petPage">Adopt A Pet</Link>
+                <Link to="/pets">Adopt A Pet</Link>
               </button>
             </article>
             <div className="img2"></div>

@@ -28,6 +28,7 @@ function Login() {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem("token", JSON.stringify(res.token));
+        localStorage.setItem("user", JSON.stringify(user.email));
         navigate("/");
         console.log(res);
       })

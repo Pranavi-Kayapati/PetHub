@@ -10,7 +10,12 @@ import {
   Text,
   Box,
   useToast,
+  AvatarGroup,
+  Avatar,
+  Button,
+  Toast,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { FaHeartCirclePlus, FaUserAlt } from "react-icons/fa";
 import logo from "../image/logo.png";
@@ -18,6 +23,7 @@ import logo from "../image/logo.png";
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [token, setToken] = useState("");
+  const [user, setUser] = useState("");
   // const toast = useToast();
 
   const toggleNav = () => {
@@ -26,20 +32,23 @@ const Navbar = () => {
 
   useEffect(() => {
     const localToken = localStorage.getItem("token");
+    const email = localStorage.getItem("user");
     setToken(localToken);
-  }, []);
+    setUser(email);
+  }, [token, user]);
 
   // Handle logout function
-  // let handleLogout = () => {
-  //   toast({
-  //     title: 'Logged Out',
-  //     status: 'error',
-  //     duration: 2000,
-  //     isClosable: true,
-  //   });
-  //   AuthLogoutFunc();
-  //   localStorage.clear();
-  // };
+  let handleLogout = () => {
+    Toast({
+      title: "Logged Out",
+      status: "error",
+      duration: 2000,
+      isClosable: true,
+    });
+    localStorage.clear();
+    setToken("");
+    setUser("");
+  };
 
   return (
     <div
@@ -101,27 +110,7 @@ const Navbar = () => {
         <h3>
           <AiFillHeart style={{ fontSize: "28px" }} />
         </h3>
-        {/* Conditional rendering based on user authentication */}
-        {/* {AuthLogin ? ( */}
-        {/* <Box w="60%"> */}
-        {/* <MenuButton>{AuthName}</MenuButton> */}
-        {/* <MenuList>
-            <Link to="/userProfile">
-              <MenuItem>
-                <FaUserAlt /> Profile
-              </MenuItem>
-            </Link>
-            <Link to="/adoptionPage">
-              <MenuItem>
-                <FaHeartCirclePlus /> Adopted Requests
-              </MenuItem>
-            </Link>
-            <MenuItem onClick={handleLogout}>
-              <FaRightFromBracket /> Log Out
-            </MenuItem>
-          </MenuList> */}
-        {/* </Box> */}
-        {/* ) : ( */}
+
         <div
           style={{
             borderLeft: "1px solid gray",
@@ -129,12 +118,28 @@ const Navbar = () => {
             margin: "0 8px",
           }}
         ></div>
-        <Link to="/signup">
-          <h3>Signup</h3>
-        </Link>
-        <Link to="/login">
-          <h3 style={{ marginLeft: "15px" }}>Login</h3>
-        </Link>
+        {!token ? (
+          <>
+            <Link to="/signup">
+              <h3>Signup</h3>
+            </Link>
+            <Link to="/login">
+              <h3 style={{ marginLeft: "15px" }}>Login</h3>
+            </Link>
+          </>
+        ) : (
+          <Menu>
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+              <AvatarGroup spacing="1rem">
+                <Avatar size="xs" bg="teal.500" />
+              </AvatarGroup>
+            </MenuButton>
+            <MenuList>
+              <MenuItem>{user}</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </MenuList>
+          </Menu>
+        )}
       </div>
 
       {isNavOpen && (
@@ -166,10 +171,10 @@ const Navbar = () => {
                   ADOPT OR GET INVOLVED
                 </MenuButton>
                 <MenuList color="#fff" bgColor="#3232af">
-                  <Link to="/AboutPetfinder">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">About petfinder</MenuItem>
                   </Link>
-                  <Link to="/AdoptingPets">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Adopting Pets</MenuItem>
                   </Link>
                   <MenuItem bgColor="#3232af">
@@ -185,11 +190,11 @@ const Navbar = () => {
                   DOGS & PUPPIES
                 </MenuButton>
                 <MenuList color="#fff" bgColor="#3232af">
-                  <Link to="/dogadopt">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Dog Adoption</MenuItem>
                   </Link>
                   <MenuItem bgColor="#3232af">Dog Breeds</MenuItem>
-                  <Link to="/FeedingDog">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Feeding your Dog</MenuItem>
                   </Link>
                   {/* Add more dog-related menu items */}
