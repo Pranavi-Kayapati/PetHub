@@ -1,34 +1,34 @@
 import React from "react";
 import { Box, Image, Flex, Badge, Text, Icon } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-export default function PuppyCard() {
+export default function Card({ data }) {
   return (
-    <Box
-      maxW="sm"
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      borderColor="purple.500"
-      bgGradient="linear(to-b, purple.500 0%, transparent 100%)"
-    >
-      <Image src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/66299448/1/?bust=1692541297&width=450" alt="Puppy image" />
+    <Link to={`/pet/:${data._id}`}>
+      <Box
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        height={"400px"}
+        boxShadow={"lg"}
+        bg={"white"}
+      >
+        <Image src={data.image} alt="Puppy image" h={"75%"} w={"100%"} />
 
-      <Box p="6">
-        <Flex align="baseline">
-          <Badge borderRadius="full" px="2" colorScheme="purple" bgGradient="linear(to-r, pink.500, purple.500)">
-            Girlfren
-          </Badge>
-          <Text
-            ml={2}
-            textTransform="uppercase"
-            fontSize="sm"
-            fontWeight="bold"
-            color="purple.800"
-          >
-            Puppy • Affenpinscher • 7 miles away
+        <Box h={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"}>
+          <Text pt={"15px"} color={"#3f38a2"} fontWeight={"semibold"}>
+            {data.name}
           </Text>
-        </Flex>
+
+          <Text fontSize={"sm"} pt={"3px"}>
+            {data.age} • {data.breed}
+          </Text>
+
+          <Text fontSize={"sm"} pt={"2px"}>
+            7 miles away
+          </Text>
+        </Box>
       </Box>
-    </Box>
+    </Link>
   );
 }

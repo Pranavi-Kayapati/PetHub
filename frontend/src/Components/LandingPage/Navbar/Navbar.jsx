@@ -48,7 +48,7 @@ const Navbar = () => {
         display: "flex",
         justifyContent: "space-between",
         height: "80px",
-        position: "fixed",
+        position: "sticky",
         zIndex: "5",
         background: "white",
       }}
