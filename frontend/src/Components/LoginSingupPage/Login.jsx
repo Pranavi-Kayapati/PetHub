@@ -4,12 +4,13 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import signuImage from "./images/pets4.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -27,6 +28,7 @@ function Login() {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem("token", JSON.stringify(res.token));
+        navigate("/");
         console.log(res);
       })
       .catch((err) => console.log(err));

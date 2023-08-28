@@ -21,7 +21,7 @@
 }
 
 .services-main-container {
-  padding-top: 80px;
+  /* padding-top: 80px; */
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
