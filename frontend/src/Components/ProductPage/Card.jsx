@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Card({ data }) {
   return (
-    <Link to={`/pet/:${data._id}`}>
+    <Link to={`/pet/${data._id}`}>
       <Box
         borderWidth="1px"
         borderRadius="lg"
@@ -15,7 +15,12 @@ export default function Card({ data }) {
       >
         <Image src={data.image} alt="Puppy image" h={"75%"} w={"100%"} />
 
-        <Box h={"25%"} display={"flex"} flexDirection={"column"} alignItems={"center"}>
+        <Box
+          h={"25%"}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+        >
           <Text pt={"15px"} color={"#3f38a2"} fontWeight={"semibold"}>
             {data.name}
           </Text>

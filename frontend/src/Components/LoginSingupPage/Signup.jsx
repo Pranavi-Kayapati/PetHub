@@ -45,7 +45,7 @@ function Signup() {
               <h2>Sign Up</h2>
             </div>
           </div>
-          <div className="signup-social">
+          {/* <div className="signup-social">
             <span className="google">
               <FcGoogle />
               <span>Google</span>
@@ -55,7 +55,7 @@ function Signup() {
               <BsFacebook />
               <span>Facebook</span>
             </span>
-          </div>
+          </div> */}
           <br />
           <hr />
           <form id="signup-form" onSubmit={handleSignup}>

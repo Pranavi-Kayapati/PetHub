@@ -48,7 +48,7 @@ function Login() {
               <h2>Login</h2>
             </div>
           </div>
-          <div className="login-social">
+          {/* <div className="login-social">
             <span className="google">
               <FcGoogle />
               <span>Google</span>
@@ -58,7 +58,7 @@ function Login() {
               <BsFacebook />
               <span>Facebook</span>
             </span>
-          </div>
+          </div> */}
           <form id="login-form" onSubmit={handleLogin}>
             <br />
             <div className="input-group user-input-wrp">
