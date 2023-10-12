@@ -21,7 +21,7 @@ HOW TO GO THROUGH THE PROJECT -
 
 ## Landing Page ()
 
-![Alt text](LandingPagePet.png)
+![Alt text](frontend/public/LandingPagePet.pn)
 
 ## Services page
 ![Alt text](frontend/public/Services.png)
