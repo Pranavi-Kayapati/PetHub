@@ -21,19 +21,21 @@ HOW TO GO THROUGH THE PROJECT -
 
 ## Landing Page ()
 
-
+![Alt text](LandingPagePet.png)
 
 ## Services page
+![Alt text](frontend/public/Services.png)
 
 ## Single Pet page
 
 
 ## Login Page
+![Alt text](frontend/public/Loginpet.png)
 
 
 
 ## Register Page
-
+![Alt text](frontend/public/signup.png)
 
 
 petfinder is an Indian online Connect with your perfect furry companion and empower animal welfare organizations with our Pet Adoption Website, featuring pet searches, user accounts, wish lists, adoption requests, and admin controls.
