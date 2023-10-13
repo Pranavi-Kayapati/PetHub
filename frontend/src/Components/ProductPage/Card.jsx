@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Card({ data }) {
   return (
-    <Link to={`/pet/${data._id}`}>
+    <Link to={`/pets/${data._id}`}>
       <Box
         borderWidth="1px"
         borderRadius="lg"

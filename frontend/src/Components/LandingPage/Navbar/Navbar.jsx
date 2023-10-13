@@ -119,7 +119,7 @@ const Navbar = () => {
                   <Link to="/AboutPetfinder">
                     <MenuItem bgColor="#3232af">About petfinder</MenuItem>
                   </Link>
-                  <Link to="/AdoptingPets">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Adopting Pets</MenuItem>
                   </Link>
                   <MenuItem bgColor="#3232af">
@@ -135,11 +135,11 @@ const Navbar = () => {
                   DOGS & PUPPIES
                 </MenuButton>
                 <MenuList color="#fff" bgColor="#3232af">
-                  <Link to="/dogadopt">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Dog Adoption</MenuItem>
                   </Link>
                   <MenuItem bgColor="#3232af">Dog Breeds</MenuItem>
-                  <Link to="/FeedingDog">
+                  <Link to="/pets">
                     <MenuItem bgColor="#3232af">Feeding your Dog</MenuItem>
                   </Link>
                   {/* Add more dog-related menu items */}
