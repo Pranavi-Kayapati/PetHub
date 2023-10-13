@@ -8,9 +8,7 @@ Backend deployed link- https://pethub-u60q.onrender.com/pet
 
 Project: Make a Full-Stack website with provided reference website.
 
-Original-Website-Images : https://www.petfinder.com/
-
-Cloned-Website: 
+Cloned-Website: https://pethub-kappa.vercel.app/
 
 HOW TO GO THROUGH THE PROJECT -
 - First, go to Login or signup ( for the first time ).
