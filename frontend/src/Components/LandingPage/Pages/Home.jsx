@@ -29,12 +29,12 @@ const Home = () => {
                className="boxes"
             >
                <Box boxSize={150}  p={1} className="box" >
-                      <Link to={"/dogadopt"} >
+                      <Link to={"/pets"} >
                     <img src={one} alt="1" style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}/>
                       </Link>
                    </Box>
                    <Box boxSize={150}  p={1} className="box" >
-                  <Link to={"/catadopt"}>
+                  <Link to={"/pets"}>
                       <img src={two} alt="2"style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
                       </Link>
                    </Box>
