@@ -19,7 +19,7 @@ const ProductPage = () => {
       size: searchParams.get("size"),
     },
   };
-
+// console.log(obj.params.breed)
   useEffect(() => {
     dispatch(getAllPets(obj));
   }, [searchParams]);
@@ -30,6 +30,7 @@ const ProductPage = () => {
         <Sidebar />
       </div>
       <div className="cardsLayout">
+        {data.length===0 ? <p>No data Found!!!</p>:null}
         {data.map((el, i) => {
           return <Card key={el._id} data={el} />;
         })}
@@ -40,6 +41,7 @@ const ProductPage = () => {
 
 const DIV = styled.div`
   display: flex;
+  margin-top:100px;
   justify-content: space-evenly;
   background-color: #f3f3f3;
 
