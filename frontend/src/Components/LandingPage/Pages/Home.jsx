@@ -9,49 +9,49 @@ import { Link } from "react-router-dom";
 const Home = () => {
    return (
       <Box width="100%" className="home-container">
-      <Box className="home-banner">
-         {/* <img
+         <Box className="home-banner">
+            {/* <img
             src="https://www.petfinder.com/sites/default/files/styles/hero_image_925_410/public/images/content/925%20hero%20image_0.jpg?itok=wmYYZbrt"
             alt=""
          /> */}
-         <div className="search">
-         <input   placeholder="Search Terrier, Kitten, etc."/>
-         <input placeholder="Asan Maina Municipality"/>
-         </div>
-         
-         <h1
-            className="banner-heading"
-         >
-            Find your new best friend. Browse pets from our network of over
-            11,500 shelters and rescues.
-         </h1>
+            <div className="search">
+               <input placeholder="Search Terrier, Kitten, etc." />
+               <input placeholder="Asan Maina Municipality" />
+            </div>
+
+            <h1
+               className="banner-heading"
+            >
+               Find your new best friend. Browse pets from our network of over
+               11,500 shelters and rescues.
+            </h1>
             <div
                className="boxes"
             >
-               <Box boxSize={150}  p={1} className="box" >
-                      <Link to={"/pets"} >
-                    <img src={one} alt="1" style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}/>
-                      </Link>
-                   </Box>
-                   <Box boxSize={150}  p={1} className="box" >
+               <Box boxSize={150} p={1} className="box" >
+                  <Link to={"/pets"} >
+                     <img src={one} alt="1" style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
+                  </Link>
+               </Box>
+               <Box boxSize={150} p={1} className="box" >
                   <Link to={"/pets"}>
-                      <img src={two} alt="2"style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
-                      </Link>
-                   </Box>
-                   <Box boxSize={160}   p={1} className="box" >
-                      <img src={three} alt="3" style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}/>
-                   </Box>
-                   <Box boxSize={160} p={1} className="box" >
-                      <img src={four} alt="4" style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}/>
-                   </Box>
+                     <img src={two} alt="2" style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
+                  </Link>
+               </Box>
+               <Box boxSize={160} p={1} className="box" >
+                  <img src={three} alt="3" style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
+               </Box>
+               <Box boxSize={160} p={1} className="box" >
+                  <img src={four} alt="4" style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }} />
+               </Box>
             </div>
-         
-      </Box>
-      <Box mt="-30px" bg="#3232af">
-         .
-      </Box>
-      <Box>
-      <Heading color={"#6504b5"} p={"5% 20%"} mt="50px">
+
+         </Box>
+         <Box mt="-30px" bg="#3232af">
+            .
+         </Box>
+         <Box>
+            <Heading color={"#6504b5"} p={"5% 20%"} mt="50px">
                Pets Available for Adoption Nearby
             </Heading>
             <Stack
@@ -75,9 +75,9 @@ const Home = () => {
                      alt=""
                   />
                   {/* <Text fontWeight={600}>Boo</Text> */}
-                  <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Boo
+                  </Heading>
                   {/* <h2>Boo</h2> */}
                </Box>
                <Box>
@@ -90,9 +90,9 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64094873/1/?bust=1683454882&width=316"
                      alt=""
                   />
-               <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Rallo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Rallo
+                  </Heading>
                </Box>
                <Box>
                   <img
@@ -104,9 +104,9 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59534213/1/?bust=1683800901&width=316"
                      alt=""
                   />
-                <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-           Bravo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Bravo
+                  </Heading>
                </Box>
                <Box>
                   <img
@@ -118,14 +118,14 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064029/1/?bust=1683800944&width=316"
                      alt=""
                   />
-               <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Tullo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Tullo
+                  </Heading>
                </Box>
             </Stack>
          </Box>
 
-         <Box margin={"150px 100px"}>
+         <Box >
             <Heading
                textAlign="center"
                fontFamily="arial helvetica "
@@ -133,14 +133,15 @@ const Home = () => {
                //  font-size: 30px;
                //  font-weight: 400;
                color="#4d4751"
-               //  margin-bottom: 40px;
+            //  margin-bottom: 40px;
             >
                Planning to Adopt a Pet?
             </Heading>
             <Stack
                direction={{ base: "column", md: "row" }}
-               gap={"80px"}
+               gap={"40px"}
                justifyContent={"center"}
+               alignItems={"center"}
             >
                <Box w={400}>
                   <Heading
@@ -187,7 +188,7 @@ const Home = () => {
                   >
                      Learn More
                   </Button>
-                  {/* <Button m={10} >Learn More</Button> */}
+                  
                </Box>
                <Box w={300}>
                   <Heading
@@ -209,12 +210,12 @@ const Home = () => {
                   >
                      Learn More
                   </Button>
-                  {/* <Button m={10}>Learn More</Button> */}
+                  
                </Box>
             </Stack>
-      </Box>
-      <Box margin={["50px 20px", "150px 100px"]}>
-         <Heading color={"#6504b5"} mb="30px">
+         </Box>
+         <Box margin={["50px 20px", "150px 100px"]}>
+            <Heading color={"#6504b5"} mb="30px">
                Pets Available for Adoption Nearby
             </Heading>
             <Stack
@@ -237,9 +238,9 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/64228600/1/?bust=1683713812&width=450"
                      alt=""
                   />
-                 <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Rambo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Rambo
+                  </Heading>
                </Box>
                <Box>
                   <img
@@ -251,9 +252,9 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064016/1/?bust=1683800914&width=316"
                      alt=""
                   />
-                <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Boo
+                  </Heading>
                </Box>
                <Box>
                   <img
@@ -265,9 +266,9 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48017216/1/?bust=1591006865&width=316"
                      alt=""
                   />
-                  <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Boo
+                  </Heading>
                </Box>
                <Box>
                   <img
@@ -279,14 +280,14 @@ const Home = () => {
                      src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/55064029/1/?bust=1683800944&width=316"
                      alt=""
                   />
-                 <Heading p={"20px 0px"}  fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
-            Boo
-            </Heading>
+                  <Heading p={"20px 0px"} fontSize={'50px'} fontFamily={'body'} fontWeight={500} color={"purple"}>
+                     Boo
+                  </Heading>
                </Box>
             </Stack>
-      </Box>
-      <Box p={10}>
-         <div className="article">
+         </Box>
+         <Box p={10}>
+            <div className="article">
                <Box
                   boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
                   borderRadius={"25px"}
@@ -334,9 +335,9 @@ const Home = () => {
                      Learn More
                   </Button>
                </Box>
-         </div>
+            </div>
+         </Box>
       </Box>
-   </Box>
    );
 };
 

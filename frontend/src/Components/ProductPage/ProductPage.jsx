@@ -30,7 +30,7 @@ const ProductPage = () => {
         <Sidebar />
       </div>
       <div className="cardsLayout">
-        {data.length===0 ? <p>No data Found!!!</p>:null}
+        {data.length===0 ? <p style={{textAlign:"center",fontSize:"30px",fontWeight:"800"}}>Data Not Found!!</p>:null}
         {data.map((el, i) => {
           return <Card key={el._id} data={el} />;
         })}
@@ -42,17 +42,43 @@ const ProductPage = () => {
 const DIV = styled.div`
   display: flex;
   margin-top:100px;
-  justify-content: space-evenly;
+  //justify-content: space-evenly;
   background-color: #f3f3f3;
 
   .sidebar {
-    width: 15%;
+    background: white;
+    width: 25%;
+    padding:50px;
   }
+ 
   .cardsLayout {
     width: 69%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+  }
+
+  @media (max-width: 800px) {
+    .cardsLayout {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .cardsLayout {
+    width: 57%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    }
+    .sidebar {
+    background: white;
+    width: 40%;
+    padding:30px;
+  }
   }
 `;
 
