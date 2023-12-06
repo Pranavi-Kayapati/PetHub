@@ -10,6 +10,8 @@ const ProductPage = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const data = useSelector((store) => store.petData.data);
+  let isAuth=useSelector((ele)=>ele.petData.token)
+  console.log("jj",isAuth);
 
   let obj = {
     params: {

@@ -1,4 +1,4 @@
-import { DATA_ERROR, DATA_SUCCESS, DATA_REQUEST } from "./actionType";
+import { DATA_ERROR, DATA_SUCCESS, DATA_REQUEST, Login_Success, Logout_Success } from "./actionType";
 import axios from "axios";
 
 export const getAllPets = (paramObj) => (dispatch) => {
@@ -131,3 +131,13 @@ export const getOnePet = (id) => (dispatch) => {
       dispatch({ type: DATA_ERROR });
     });
 };
+
+
+export const LoginSuccess=(payload)=>{
+  return {type:Login_Success,payload}
+}
+
+
+export const LogoutSuccess=()=>{
+  return {type:Logout_Success}
+}

@@ -4,33 +4,68 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import signuImage from "./images/pets3.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [Firstname, setFirstname] = useState("");
-  const [Lastname, setLastname] = useState("");
+  const [FirstName, setFirstname] = useState("");
+  const [LastName, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [err,setErr]=useState(false)
+  const [err1,setErr1]=useState(false)
+  const navigate=useNavigate()
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  
   const handleSignup = (e) => {
     e.preventDefault();
-    const user = { Firstname, Lastname, email, password };
-    fetch("https://tiny-red-armadillo-cape.cyclic.cloud/users/register", {
-      method: "POST",
+    const user = { FirstName, LastName, email, password };
+    
+   
+    
+    fetch("https://pethub-u60q.onrender.com/users/register", {
+      method: "POST" ,
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res)=>{
+        // if(res){
+        //   navigate("/login")
+        // }
+        if(res.error){
+          console.log("hjy",res);
+          if(user.password.length<=6 ){
+            // alert("Password should be above 6 characters") 
+            setErr(true)
+        }
+        else {
+          // Check if password contains at least one special character
+          const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+          if (!specialCharRegex.test(password)) {
+            //alert("Password should contain at least one special character");
+            setErr1(true)
+          }
+        
+        }
+    
+      }
+      else{
+        navigate("/login")
+      }
+        
+      })
       .catch((err) => console.log(err));
     // console.log(user);
+    setFirstname("")
+    setLastname("")
+    setEmail("")
+    setPassword("")
   };
 
   return (
@@ -56,8 +91,10 @@ function Signup() {
               <span>Facebook</span>
             </span>
           </div> */}
+           <p style={{position:"relative",fontSize:"14px",color:"red"}}>{err && "Password should be above 6 characters"}</p>
+           <p style={{position:"relative",fontSize:"14px",color:"red"}}>{err1 && "Password should contain at least one special character"}</p>
           <br />
-          <hr />
+          
           <form id="signup-form" onSubmit={handleSignup}>
             <div className="input-group user-input-wrp">
               <br />
@@ -66,7 +103,7 @@ function Signup() {
                 type="text"
                 id="firstname"
                 name="firstname"
-                value={Firstname}
+                value={FirstName}
                 onChange={(e) => setFirstname(e.target.value)}
                 required
               />
@@ -80,7 +117,7 @@ function Signup() {
                 type="text"
                 id="lastname"
                 name="lastname"
-                value={Lastname}
+                value={LastName}
                 onChange={(e) => setLastname(e.target.value)}
                 required
               />

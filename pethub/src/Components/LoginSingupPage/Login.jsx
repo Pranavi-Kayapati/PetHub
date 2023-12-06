@@ -5,35 +5,64 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import signuImage from "./images/pets4.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { LoginSuccess } from "../../Redux/Pets/action";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err,setErr]=useState(false)
   const navigate = useNavigate();
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  let dispatch=useDispatch()
+
+  
+
   const handleLogin = (e) => {
     e.preventDefault();
     const user = { email, password };
-    fetch("https://tiny-red-armadillo-cape.cyclic.cloud/users/login", {
+    fetch("https://pethub-u60q.onrender.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
-      .then((res) => res.json())
+      .then((res)=>{
+        console.log(res.status);
+          if(res.status==200){
+            return res.json()
+          }
+          else{
+            alert("Wrong email or password")
+          }
+      })
       .then((res) => {
-        localStorage.setItem("token", JSON.stringify(res.token));
-        localStorage.setItem("user", JSON.stringify(user.email));
-        navigate("/");
-        console.log(res);
+        if(res.token==undefined){
+          
+          setErr(true)
+        }
+        else{
+          localStorage.setItem("token", JSON.stringify(res.token));
+          localStorage.setItem("user", JSON.stringify(user.email));
+        }
+        
+        
+        // navigate("/");
+        console.log(res.token);
+        dispatch(LoginSuccess())
+        if(res.token){
+          navigate("/")
+        }
       })
       .catch((err) => console.log(err));
     // console.log(user);
+    setEmail("")
+    setPassword("")
   };
 
   return (
@@ -59,6 +88,7 @@ function Login() {
               <span>Facebook</span>
             </span>
           </div> */}
+          <p style={{position:"relative",fontSize:"14px",color:"red"}}>{err && "Wrong email or password"}</p>
           <form id="login-form" onSubmit={handleLogin}>
             <br />
             <div className="input-group user-input-wrp">

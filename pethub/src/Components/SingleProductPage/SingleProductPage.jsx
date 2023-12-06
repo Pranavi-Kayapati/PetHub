@@ -21,6 +21,7 @@ const SingleProductPage = () => {
                     <h3>Age:{singleProduct.age}</h3>
                     <p>Gender:{singleProduct.gender}</p>
                     <p>Size:{singleProduct.size}</p>
+                    <p>Call: (315) 336-7070</p>
                 </div>
             </div>
         }

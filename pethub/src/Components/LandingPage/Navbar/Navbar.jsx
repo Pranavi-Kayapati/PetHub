@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
 // import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
   Menu,
@@ -23,19 +24,39 @@ import {
   DrawerFooter,
 } from "@chakra-ui/react";
 import "./Navbar.css"
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import { FaHeartCirclePlus, FaUserAlt } from "react-icons/fa";
 import logo from "../image/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { LogoutSuccess } from "../../../Redux/Pets/action";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
+  const [toggle,setToggle]=useState(false)
   // const toast = useToast();
+  let dispatch=useDispatch()
+  let token=(localStorage.getItem("token"))||[]
+  let user=JSON.parse(localStorage.getItem("user"))||[]
+  console.log(user)
+  console.log("token",token);
+
+  let isAuth=useSelector((ele)=>ele.petData.isAuth)
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+console.log(isAuth);
+
+  let Logout=()=>{
+    console.log("1");
+    localStorage.clear()
+    
+      dispatch(LogoutSuccess())
+    
+  }
 
   // Handle logout function
   // let handleLogout = () => {
@@ -79,12 +100,27 @@ const Navbar = () => {
             margin: '0 8px',
           }}
         ></div>
-        <Link to="/signup">
-          <h3>Signup</h3>
-        </Link>
-        <Link to="/login">
-          <h3 style={{ marginLeft: '15px' }}>Login</h3>
-        </Link>
+        {
+        localStorage.length>=2?"":(
+            <Link to="/signup">
+            <h3>Signup</h3>
+          </Link>
+          )
+        }
+        
+        {
+         localStorage.length>=2?(<div>
+           
+            <h3 style={{marginTop:"12px"}}> {user}<IoIosArrowDown className="icon" value={toggle} onClick={()=>setToggle(!toggle)}/></h3>
+
+            <h3 onClick={Logout}  className={`logout ${toggle?"show":""}`} >Logout</h3></div>)
+             
+            :(
+            <Link to="/login">
+            <h3 style={{ marginLeft: '15px' }}>Login</h3>
+          </Link>
+          )
+        }
       </div>
 
       {isNavOpen && (
@@ -112,7 +148,7 @@ const Navbar = () => {
           >
             <li>
               <Menu>
-                <MenuButton as={Text} isLazy={true} color="#fff">
+                <MenuButton as={Text} isLazy={true} color="#fff" cursor={"pointer"}>
                   ADOPT OR GET INVOLVED
                 </MenuButton>
                 <MenuList color="#fff" bgColor="#3232af">
@@ -131,7 +167,7 @@ const Navbar = () => {
             </li>
             <li>
               <Menu>
-                <MenuButton as={Text} isLazy={true} color="#fff">
+                <MenuButton as={Text} isLazy={true} color="#fff" cursor={"pointer"}>
                   DOGS & PUPPIES
                 </MenuButton>
                 <MenuList color="#fff" bgColor="#3232af">
@@ -163,26 +199,31 @@ const Navbar = () => {
           >
             <DrawerOverlay
             />
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader>Create your account</DrawerHeader>
-
-              <DrawerBody>
-                <Link to="/signup">
-                  <h3>Signup</h3>
-                </Link>
-                <Link to="/login">
-                  <h3 style={{ marginLeft: '15px' }}>Login</h3>
-                </Link>
-              </DrawerBody>
-
-              <DrawerFooter>
-                <Button variant='outline' mr={3} onClick={onClose}>
-                  Cancel
-                </Button>
-                <Button colorScheme='blue'>Save</Button>
-              </DrawerFooter>
-            </DrawerContent>
+            
+             
+                <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader mt={5}>Create your account</DrawerHeader>
+  
+                <DrawerBody>
+                  <Link to="/signup">
+                    <h3>Signup</h3>
+                  </Link>
+                  <Link to="/login">
+                    <h3 style={{ marginLeft: '-7px',marginTop:"5px" }}>Login</h3>
+                  </Link>
+                </DrawerBody>
+  
+                <DrawerFooter>
+                  <Button variant='outline' mr={3} onClick={onClose}>
+                    Cancel
+                  </Button>
+                  <Button colorScheme='blue'>Save</Button>
+                </DrawerFooter>
+              </DrawerContent>
+              
+            
+           
           </Drawer>
         </>
       </div>
